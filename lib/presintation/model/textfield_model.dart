@@ -3,13 +3,12 @@
 import 'package:flutter/material.dart';
 
 class TextFormFieldsItems{
-  static TextFormField items({required String text,}){
-    return TextFormField(
-      decoration: InputDecoration(
+  static InputDecoration items({required String text,}){
+    return InputDecoration(
         hintText: text,
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8)),
-      ),
+
     );
   }
 }
