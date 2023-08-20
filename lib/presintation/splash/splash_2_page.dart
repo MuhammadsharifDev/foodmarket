@@ -1,23 +1,30 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:foodmarket_firebase/presintation/main/home/home_page.dart';
 import 'package:foodmarket_firebase/presintation/model/text_style.dart';
 
-class SplashPage2 extends StatelessWidget {
+class SplashPage2 extends StatefulWidget {
   const SplashPage2({super.key});
 
+  @override
+  State<SplashPage2> createState() => _SplashPage2State();
+}
+
+class _SplashPage2State extends State<SplashPage2> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2)).then((value) => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>  const HomePage(),
+        )));
+  }
   @override
   Widget build(BuildContext context) {
     var media=MediaQuery.of(context);
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        actions: [
-          IconButton(onPressed: () async {
-           await FirebaseAuth.instance.signOut();
-          }, icon: const Icon(Icons.login_outlined,color: Colors.red,)),
-        ],
-      ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(80, 130, 80, 0),
         child: Column(

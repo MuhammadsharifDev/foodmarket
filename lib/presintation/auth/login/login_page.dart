@@ -66,7 +66,7 @@ class LoginPage extends StatelessWidget {
                       if(state.firebase.isLoading)
                         const CircularProgressIndicator(),
                       if(state.firebase.isError)
-                        const Text('Malumot yetarli emas',style: TextStyle(color: Colors.red),),
+                        const Text('Email or password invalid',style: TextStyle(color: Colors.red),),
                       StyleText.items(
                           text: 'Email Adress',
                           size: 16,

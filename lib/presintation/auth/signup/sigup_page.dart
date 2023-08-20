@@ -68,7 +68,7 @@ class SignupPage extends StatelessWidget {
                 ),
                 body: SingleChildScrollView(
                   child: SizedBox(
-                    height: media.size.height * 580 / 800,
+                    height: media.size.height * 590 / 800,
                     width: double.infinity,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 24, right: 24),

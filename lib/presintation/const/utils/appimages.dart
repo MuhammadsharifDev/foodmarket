@@ -6,4 +6,6 @@ class AppImages{
   static const String food2='assets/png_image/food2.jpg';
   static const String food3='assets/png_image/food3.jpg';
   static const String food4='assets/png_image/food4.jpg';
+  static const String appbar_images='assets/png_image/appar_image.jpg';
+  static const String stars_images='assets/png_image/star_image.jpg';
 }
