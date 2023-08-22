@@ -9,7 +9,7 @@ part 'signup_event.dart';
 part 'signup_state.dart';
 
 class SignupBloc extends Bloc<SignupEvent, SignupState> {
-  SignupBloc() : super(SignupState()) {
+  SignupBloc() : super(const SignupState()) {
     on<SignUpEvent>(_signUp);
   }
 

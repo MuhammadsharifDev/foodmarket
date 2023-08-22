@@ -6,11 +6,10 @@ import 'package:foodmarket_firebase/presintation/auth/signup/bloc/signup_bloc.da
 import 'package:foodmarket_firebase/presintation/main/bag/bloc/bag_bloc.dart';
 import 'package:foodmarket_firebase/presintation/main/bloc/main_bloc.dart';
 import 'package:foodmarket_firebase/presintation/main/detailpage/bloc/detailpage_bloc.dart';
-import 'package:foodmarket_firebase/presintation/main/detailpage/detail_page.dart';
 import 'package:foodmarket_firebase/presintation/main/home/bloc/home_bloc.dart';
-import 'package:foodmarket_firebase/presintation/main/home/home_page.dart';
 import 'package:foodmarket_firebase/presintation/main/profile/bloc/profile_bloc.dart';
-import 'package:foodmarket_firebase/presintation/splash/splash_2_page.dart';
+import 'package:foodmarket_firebase/presintation/routes/app_routes.dart';
+import 'package:foodmarket_firebase/presintation/routes/name_routes.dart';
 import 'package:foodmarket_firebase/presintation/splash/splash_page.dart';
 import 'firebase_options.dart';
 
@@ -29,19 +28,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
-          BlocProvider(create: (_) => LoginBloc()),
-          BlocProvider(create: (_) => SignupBloc()),
           BlocProvider(create: (_)=>MainBloc()),
-          BlocProvider(create: (_)=>HomeBloc()),
           BlocProvider(create: (_)=>BagBloc()),
           BlocProvider(create: (_)=>ProfileBloc()),
           BlocProvider(create: (_)=>HomeBloc()..add(ListProductEvent())..add(TabListEvent())),
           BlocProvider(create: (_)=>DetailpageBloc()),
-
+          BlocProvider(create: (_)=>LoginBloc()),
         ],
-        child:  MaterialApp(
+        child:  const  MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: SplashPage(),
+          initialRoute: Routes.splash,
+          onGenerateRoute: AppRoutes.onGenerateRoute,
         ));
   }
 }

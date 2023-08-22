@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodmarket_firebase/presintation/auth/login/bloc/login_bloc.dart';
-import 'package:foodmarket_firebase/presintation/auth/signup/sigup_page.dart';
 import 'package:foodmarket_firebase/presintation/const/utils/app_icons.dart';
 import 'package:foodmarket_firebase/presintation/model/elevatedbottom_style.dart';
 import 'package:foodmarket_firebase/presintation/model/text_style.dart';
 import 'package:foodmarket_firebase/presintation/model/textfield_model.dart';
+import 'package:foodmarket_firebase/presintation/routes/name_routes.dart';
 import 'package:foodmarket_firebase/presintation/splash/splash_2_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -53,7 +53,7 @@ class LoginPage extends StatelessWidget {
             ),
             body: SingleChildScrollView(
               child: SizedBox(
-                height: media.size.height * 519 / 800,
+                height: media.size.height * 530/800,
                 width: double.infinity,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 24, right: 24),
@@ -206,11 +206,7 @@ class LoginPage extends StatelessWidget {
                           StyleText.items(text: 'Create An Account', size: 10),
                           TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => SignupPage(),
-                                  ));
+                              Navigator.pushReplacementNamed(context, Routes.signup);
                             },
                             child: StyleText.items(
                                 text: 'Sign Up',

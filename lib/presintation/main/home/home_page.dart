@@ -1,13 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodmarket_firebase/presintation/auth/login/login_page.dart';
 import 'package:foodmarket_firebase/presintation/const/utils/appimages.dart';
 import 'package:foodmarket_firebase/presintation/main/detailpage/detail_page.dart';
 import 'package:foodmarket_firebase/presintation/main/home/bloc/home_bloc.dart';
 import 'package:foodmarket_firebase/presintation/model/text_style.dart';
+import 'package:foodmarket_firebase/presintation/routes/name_routes.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key,});
+  const HomePage({
+    super.key,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -25,9 +29,16 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.white,
             elevation: 0,
             toolbarHeight: MediaQuery.of(context).size.height * 108 / 800,
-            leading: IconButton(onPressed: () async {
-        await FirebaseAuth.instance.signOut();
-        }, icon: const Icon(Icons.login_outlined,color: Colors.red,)),
+            leading: IconButton(
+              onPressed: () {
+                FirebaseAuth.instance.signOut();
+               Navigator.pushNamed(context, Routes.login);
+              },
+              icon: const Icon(
+                Icons.login_outlined,
+                color: Colors.red,
+              ),
+            ),
             title: Padding(
               padding: const EdgeInsets.only(left: 24),
               child: Column(
@@ -111,8 +122,14 @@ class _HomePageState extends State<HomePage> {
                           height: media.size.height * 60 / 800,
                           width: media.size.width * 60 / 360,
                           child: GestureDetector(
-                              onTap: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(items: state.tabItems[index],),));
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DetailPage(
+                                        items: state.tabItems[index],
+                                      ),
+                                    ));
                               },
                               child: Image.asset(state.tabItems[index].image)),
                         ),

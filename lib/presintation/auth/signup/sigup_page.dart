@@ -6,6 +6,7 @@ import 'package:foodmarket_firebase/presintation/auth/signup/bloc/signup_bloc.da
 import 'package:foodmarket_firebase/presintation/model/elevatedbottom_style.dart';
 import 'package:foodmarket_firebase/presintation/model/text_style.dart';
 import 'package:foodmarket_firebase/presintation/model/textfield_model.dart';
+import 'package:foodmarket_firebase/presintation/routes/name_routes.dart';
 import 'package:foodmarket_firebase/presintation/splash/splash_2_page.dart';
 
 class SignupPage extends StatelessWidget {
@@ -68,7 +69,7 @@ class SignupPage extends StatelessWidget {
                 ),
                 body: SingleChildScrollView(
                   child: SizedBox(
-                    height: media.size.height * 590 / 800,
+                    height: media.size.height * 630 / 800,
                     width: double.infinity,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 24, right: 24),
@@ -173,11 +174,7 @@ class SignupPage extends StatelessWidget {
                                   text: 'I Already Have an Account', size: 10),
                               TextButton(
                                 onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => LoginPage(),
-                                      ));
+                                  Navigator.pushNamed(context, Routes.login);
                                 },
                                 child: StyleText.items(
                                     text: 'Login',

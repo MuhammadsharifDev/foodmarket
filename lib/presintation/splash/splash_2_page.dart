@@ -1,7 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:foodmarket_firebase/presintation/main/home/home_page.dart';
+import 'package:foodmarket_firebase/presintation/main/main_page.dart';
 import 'package:foodmarket_firebase/presintation/model/text_style.dart';
+import 'package:foodmarket_firebase/presintation/routes/name_routes.dart';
 
 class SplashPage2 extends StatefulWidget {
   const SplashPage2({super.key});
@@ -11,15 +11,7 @@ class SplashPage2 extends StatefulWidget {
 }
 
 class _SplashPage2State extends State<SplashPage2> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 2)).then((value) => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) =>  const HomePage(),
-        )));
-  }
+
   @override
   Widget build(BuildContext context) {
     var media=MediaQuery.of(context);
@@ -45,8 +37,9 @@ class _SplashPage2State extends State<SplashPage2> {
                 ),
                 minimumSize: Size(media.size.width*200/365, 45),
               ),
-                onPressed: (){}, child: StyleText.items(text: 'Finds Food', size: 14,color: Colors.white)),
-
+                onPressed: (){
+                Navigator.pushNamed(context, Routes.main);
+                }, child: StyleText.items(text: 'Finds Food', size: 14,color: Colors.white)),
           ],
         ),
       )

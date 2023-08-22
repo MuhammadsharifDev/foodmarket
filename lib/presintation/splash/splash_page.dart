@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodmarket_firebase/presintation/auth/login/login_page.dart';
 import 'package:foodmarket_firebase/presintation/const/utils/app_colors.dart';
 import 'package:foodmarket_firebase/presintation/const/utils/app_icons.dart';
+import 'package:foodmarket_firebase/presintation/routes/name_routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SplashPage extends StatefulWidget {
@@ -16,11 +17,8 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2)).then((value) => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) =>  LoginPage(),
-        )));
+    Future.delayed(const Duration(seconds: 2))
+        .then((value) => Navigator.pushReplacementNamed(context, Routes.login));
   }
 
   @override

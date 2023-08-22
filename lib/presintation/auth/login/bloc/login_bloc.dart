@@ -32,7 +32,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         'email',
       ],
     );
-
     try {
       final GoogleSignInAccount? googleUser = await _googleSign.signIn();
       final GoogleSignInAuthentication googleAuth =
@@ -54,6 +53,4 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       return null;
     }
   }
-
-
 }
